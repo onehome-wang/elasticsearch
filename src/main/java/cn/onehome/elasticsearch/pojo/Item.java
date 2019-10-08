@@ -15,7 +15,7 @@ public class Item {
     @Id
     private Long id;
 
-    @MultiField(mainField = @Field(type = FieldType.Text, analyzer = "ik_max_word"), otherFields = @InnerField(suffix = "my_pinyin", type = FieldType.Text, analyzer = "ik_pinyin_analyzer", searchAnalyzer = "ik_pinyin_analyzer"))
+    @MultiField(mainField = @Field(type = FieldType.Text, analyzer = "ik_max_word"), otherFields = {@InnerField(suffix = "my_pinyin", type = FieldType.Text, analyzer = "ik_pinyin_analyzer", searchAnalyzer = "ik_pinyin_analyzer"), @InnerField(suffix = "keyword", type = FieldType.Keyword)})
     private String category;
 
     public String getCategory() {
@@ -32,6 +32,9 @@ public class Item {
 
     public void setId(Long id) {
         this.id = id;
+    }
+
+    public Item() {
     }
 
     public Item(Long id, String category) {

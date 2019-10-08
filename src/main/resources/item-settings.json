@@ -1,0 +1,30 @@
+{
+  "number_of_shards":"1",
+  "analysis" : {
+    "analyzer" : {
+      "ik_pinyin_analyzer" : {
+        "tokenizer" : "my_pinyin"
+      }
+    },
+    "tokenizer" : {
+      "my_pinyin" : {
+        "type" : "pinyin",
+        "keep_first_letter" : true,
+        "keep_separate_first_letter" : false,
+        "limit_first_letter_length" : 16,
+        "keep_full_pinyin" : true,
+        "keep_joined_full_pinyin" : false,
+        "keep_none_chinese" : true,
+        "keep_none_chinese_together" : true,
+        "keep_none_chinese_in_first_letter" : true,
+        "keep_none_chinese_in_joined_full_pinyin" : false,
+        "none_chinese_pinyin_tokenize" : true,
+        "keep_original" : true,
+        "lowercase" : true,
+        "trim_whitespace" : false,
+        "remove_duplicated_term" : true,
+        "ignore_pinyin_offset" : true
+      }
+    }
+  }
+}
